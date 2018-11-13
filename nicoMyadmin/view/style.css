@@ -1,0 +1,75 @@
+body{
+    font-family: 'Josefin Sans', sans-serif;
+}
+form{
+
+    display: flex;
+    width:100%;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    background:  linear-gradient(
+        to right, 
+        #01a2ff, 
+        #f06d06, 
+        red, 
+       #fffb00
+      );
+
+}
+.champ{
+    display: flex;
+    width: 50%;
+    height: auto;
+    margin: auto;
+    padding: 10px 0;
+   
+}
+.champ input{
+    width: 400px;
+    border-radius: 10px;
+ 
+
+}
+
+.champ label{
+    width: 200px;
+
+}
+button{
+    background-color: rgb(233, 214, 40);
+    border:none;
+    box-shadow: 5px  5px 5px grey;
+}
+
+.champ button{
+
+    display: flex;
+    width: 100px;
+    margin: auto;
+}
+h1 ,h2{
+    text-align: center;
+}
+h1{
+    color:red;
+}
+.reponseColonne{
+
+    width: 100%;
+    padding: 20px;
+    text-decoration: none;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+.reponseEntree{
+
+    width: 100%;
+    padding: 20px;
+    text-decoration: none;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}

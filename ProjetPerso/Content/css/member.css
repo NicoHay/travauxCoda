@@ -1,0 +1,189 @@
+/* message espace membre  */
+.alert-danger {
+    background-color: #ff0000;
+    border-color: #000000;
+    color: #ffffff;
+    padding: 15px;
+    margin: 25px;
+    font-weight: bold;
+    border: 1px solid transparent;
+    height: auto;
+    width: 30%;
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+}
+.alert-success {
+    background-color: #67c741;
+    border-color: #000000;
+    color: #ffffff;
+    padding: 15px;
+    margin: 25px;
+    font-weight: bold;
+    border: 1px solid transparent;
+    height: auto;
+    width: 30%;
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+}
+.formulaire {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
+    
+}
+form {
+    
+    padding: 30px 10px 30px 10px;
+    display: grid;
+    grid-column: 2 / span 3;
+    line-height: 2
+}
+form a{
+    text-decoration: none;
+    color: #868686;
+}
+label {
+    
+    justify-self: left;
+    grid-column: 1;
+    color: #575757
+}
+input {
+    margin-top: 15px ;
+    margin-bottom: 10px;
+    grid-column-start: 1;
+    border: none;
+    border-bottom: 1px solid grey;
+    font-size: 1.5em;
+    background-color:transparent;
+    
+    
+}
+
+input[type=checkbox] {
+    grid-column-start: 1;
+}
+button {
+    display: grid;
+    width: 100%;
+    justify-self: end;
+    grid-column: 1;
+    border-radius: 5px;
+    background-color: #50A8A3;
+    border: none;
+    height: 50px;
+    cursor: pointer;
+}
+#mail button {
+   margin-top: 30px;
+    background-color:  #5F5E73;;
+    color: #ffffff;
+}
+#mail label {
+        
+    color: white;
+}
+input::before{
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #ff0000;
+    position: relative;
+}
+#mail form{
+   
+        border : 1px solid  #5F5E73;
+        padding: 15px;
+    
+}
+
+
+.admin{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: 1fr 5fr 1fr;
+}
+
+.admin h1{
+    grid-row: 1;
+    grid-column: 1 /span 12;
+    align-self: center;
+    justify-self: center;
+    
+}
+.admin .formulaire{
+    grid-row: 2;
+    grid-column: 1 / span 6;
+}
+@media screen and (max-width: 960px){
+    
+    form {
+        
+        padding: 30px 10px 30px 10px;
+        display: grid;
+        grid-column: 1 / span 4;
+        line-height: 2
+    }
+    input {
+        margin-top: 15px ;
+        margin-bottom: 10px;
+        grid-column-start: 1;
+    }
+#mail button {
+        margin-top: 30px;
+        display: grid;
+        width: 75%;
+        justify-self: center;
+        grid-column: 1;
+        background-color: #5F5E73;
+        color: #ffffff;
+    }
+    #mail form{
+   
+        border : none;
+
+    
+}
+
+
+
+
+    /* message espace membre  */
+    .alert-danger {
+        
+        padding: 10px;
+        margin: 20px;
+        width: 100%;
+    }
+    .alert-success {
+        
+        padding: 10px;
+        margin: 20px;
+        width: 100%;
+    }
+    
+}
+
+@media screen and (max-width: 567px){
+    form{
+        padding: 30px 10px 30px 10px;
+    }
+    .alert-danger {
+        
+        padding: 10px;
+        margin: 20px;
+        width: 100%;
+    }
+    .alert-success {
+        
+        padding: 10px;
+        margin: 20px;
+        width: 100%;
+    }
+    
+    
+}
