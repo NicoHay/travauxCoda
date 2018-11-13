@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>three.Js</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+
+<body>
+
+    <script src="Js/three.js"></script>
+    <script src="Js/SpotLight.js"></script>
+    <script src="Js/OrbitControls.js"></script>
+
+
+
+
+    <script>
+        var scene = new THREE.Scene();
+        var time = Date.now() * 0.0005;
+
+
+
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        var renderer = new THREE.WebGLRenderer();
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFShadowMap;
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        window.addEventListener('resize', function() {
+
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            renderer.setSize(width, height);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        });
+
+        //gestion du controle de la scene a la souris
+
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.addEventListener('change', render);
+        controls.enableDamping = true;
+
+
+        // gestion lumiere
+
+        var ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
+
+        var light1 = new THREE.PointLight(0xffffff, 0.9, 100);
+        light1.castShadow = true;
+
+
+        // gestion ombrage light1
+        light1.shadow.mapSize.width = 512; // default
+        light1.shadow.mapSize.height = 512; // default
+        light1.shadow.camera.near = 0.5; // default
+        light1.shadow.camera.far = 500; // default
+
+
+
+
+        //Helper pour positioner la lumiere 
+        var helper = new THREE.CameraHelper(light1.shadow.camera);
+
+        // creation Formes
+        var geometryBox = new THREE.BoxGeometry(2, 2, 2);
+        var geometryFloor = new THREE.PlaneGeometry(40, 30, 32, 32);
+
+        // create a material, coleur , image texture , wireframe = arrete visible
+
+
+        var materialFloor = new THREE.MeshStandardMaterial({
+            color: 0xb3e6ff,
+            wireframe: false
+        });
+        var materialBox = new THREE.MeshStandardMaterial({
+            color: 0xcc9900,
+            wireframe: false
+        });
+
+
+        var Box = new THREE.Mesh(geometryBox, materialBox);
+
+        var Floor = new THREE.Mesh(geometryFloor, materialFloor);
+
+
+        // ombrage du floor
+        Floor.receiveShadow = true;
+        Box.castShadow = true;
+
+
+
+        //ajout a la scene
+        scene.add(Box);
+        scene.add(Floor);
+        scene.add(ambientLight);
+        scene.add(light1); // scene.add(helper);
+        Floor.add(ambientLight);
+
+
+
+        // definition de la position de la camera
+        camera.position.z = 15;
+        camera.position.y = 15;
+
+
+        // game logic
+        var update = function() {
+
+
+            Box.position.x = 0;
+
+            Box.position.y = 1.5;
+            Box.position.z = -2;
+            Box.rotation.x += 0.1;
+            Box.rotation.y += 0.1;
+
+            Floor.rotation.set(-90, 0, 0);
+
+            light1.position.x = 15;
+            light1.position.y = 15;
+            light1.position.z = 10;
+
+        };
+        // draw scene
+        var render = function() {
+            renderer.render(scene, camera);
+
+        };
+        // run game loop (update , render , repeat)
+        var GameLoop = function() {
+
+            requestAnimationFrame(GameLoop);
+            update();
+            render();
+        };
+
+        GameLoop();
+    </script>
+</body>
+
+</html>
