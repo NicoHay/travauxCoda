@@ -13,10 +13,10 @@ form{
     justify-content: center;
     background:  linear-gradient(
         to right, 
-        #01a2ff, 
-        #f06d06, 
-        red, 
-       #fffb00
+         black, 
+        white
+     
+ 
       );
 
 }
@@ -40,7 +40,7 @@ form{
 
 }
 button{
-    background-color: rgb(233, 214, 40);
+    background-color: white;
     border:none;
     box-shadow: 5px  5px 5px grey;
 }
