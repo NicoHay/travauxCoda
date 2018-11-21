@@ -1,10 +1,5 @@
 <section id="intro">
 
-            <!-- <div class="layer"id="layer1"></div>
-<div class="layer"id="layer2"></div>
-<div class="layer"id="layer3"></div>
-<div class="layer"id="layer4"></div>
-<div class="layer" id="layer5"></div> -->
 
             <h1>Un Guide Partout.</h1>
             <div class="mobile"></div>

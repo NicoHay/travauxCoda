@@ -20,35 +20,36 @@ class Routeur {
         if (isset($_GET['action'])){
             
             switch(true){
-                case  $_GET['action'] === 'login':
+                case 'login':
                 $this->ctrlLogin = new Login();
                 $this->ctrlLogin->controlLogin();
                 break;
-                case $_GET['action'] ===  'register':
+                case 'register':
                 $this->ctrlRegister = new Register();
                 $this->ctrlRegister->controlRegister();
                 break;
-                case $_GET['action'] ===  'reset':
+                case 'reset':
                 $this->ctrlReset = new Reset();
                 $this->ctrlReset->controlReset();
                 break;
-                case $_GET['action'] ===  'forget':
+                case 'forget':
                 $this->ctrlForget = new Forget();
                 $this->ctrlForget->controlForget();
                 break;
-                case $_GET['action'] ===  'logout':
+                case 'logout':
                 $this->ctrlLogout = new Logout();
                 $this->ctrlLogout->controlLogout();
                 break;
-                case $_GET['action'] ===  'account':
+                case 'account':
                 $this->ctrlAccount = new Account();
                 $this->ctrlAccount->controlAccount();
                 break;
-                case $_GET['action'] ===  'confirm':
+                case  'confirm':
                 $this->ctrlConfirm = new Confirm();
                 $this->ctrlConfirm->controlConfirm();
                 break;
                 default:
+                
                 $vue = new Vue('Home');   
                 $vue->generer();   
                     

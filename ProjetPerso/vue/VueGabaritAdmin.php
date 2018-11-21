@@ -38,13 +38,7 @@
     </header>
 
 
-      <?php echo $contenu;   // contenu de ma page 
-                        if(Session::getInstance()->hasFlashes()){
-                          foreach (Session::getInstance()->getFlashes() as $type => $value ){
-                              echo '<div class= "alert-'.$type.'">'.$value.'</div>';
-                            }
-                          }  
-                          ?>
+      <?php echo $contenu;   // contenu de ma page   ?>
     </div>
 
 
