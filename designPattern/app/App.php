@@ -20,7 +20,7 @@ class App{
 
           
 
-            static::$database = new Database($config->get(db_name),$config->get(db_user),$config->get(db_pass),$config->get(db_host));
+            static::$database = new Database($config->get('db_name'),$config->get('db_user'),$config->get('db_pass'),$config->get('db_host'));
           
         }
 
