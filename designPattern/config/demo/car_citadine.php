@@ -1,6 +1,6 @@
 <?php
 
-class Car_citadine extends Car{
+class CarCitadine extends Car{
 
 
     

@@ -4,27 +4,22 @@ namespace App;
 
 class App{
 
-    private static $database;
     private static $title = 'Mon super blog';
+    private static $db_instance;
     private static $_instance;
 
 
 
 
-    public static function getDb(){
+    public static function getInstance(){
 
+        if (is_null(self::$_instance)){
 
-        if(static::$database === null){
+            self::$_instance =   new Table();
 
-           $config =  Config::getInstance();
-
-          
-
-            static::$database = new Database($config->get('db_name'),$config->get('db_user'),$config->get('db_pass'),$config->get('db_host'));
-          
         }
 
-        return static::$database;
+        return self::$_instance;
     }
 
     public static function notFound(){
@@ -41,5 +36,32 @@ class App{
 
         self::$title  = $title ;
     }
+
+    public function getTable($name){
+
+        $class_name = '\\App\\Table\\' . $name . 'Table';
+       //die($class_name);
+       return new $class_name($this->getDb());
+    }
+
+    public function getDb(){
+
+        $config =  Config::getInstance();
+
+        if($this->db_instance === null){
+
+        $this->db_instance = new Database($config->get('db_name'),$config->get('db_user'),$config->get('db_pass'),$config->get('db_host'));
+
+        }
+        
+        return $this->db_instance;
+    }
+
+
+
+    
+
+
+
 
 }

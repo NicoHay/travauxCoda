@@ -6,37 +6,45 @@ require '../app/Autoloader.php';
 App\Autoloader::register();
 
 
+$app = App\App::getInstance();
 
-if (isset($_GET['p'])){
-
-	$p  = $_GET['p'];
+$posts = $app->getTable('Posts');
 
 
-}
-	else{
-	$p = 'home';
-}
+// var_dump(App\App::getTable('Users'));
 
 
 
-ob_start();
+// if (isset($_GET['p'])){
 
-if($p === 'home')
-{
+// 	$p  = $_GET['p'];
 
-	require '../pages/home.php';
 
-}
-elseif($p === 'article')
-{
+// }
+// 	else{
+// 	$p = 'home';
+// }
 
-	require '../pages/single.php';
-}
-elseif($p === 'categorie')
-{
 
-	require '../pages/categorie.php';
-}
-$content = ob_get_clean();
 
-require '../pages/templates/default.php';
+// ob_start();
+
+// if($p === 'home')
+// {
+
+// 	require '../pages/home.php';
+
+// }
+// elseif($p === 'article')
+// {
+
+// 	require '../pages/single.php';
+// }
+// elseif($p === 'categorie')
+// {
+
+// 	require '../pages/categorie.php';
+// }
+// $content = ob_get_clean();
+
+// require '../pages/templates/default.php';
