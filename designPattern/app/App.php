@@ -11,16 +11,6 @@ class App{
 
 
 
-    public static function getInstance(){
-
-        if (is_null(self::$_instance)){
-
-            self::$_instance =   new Table();
-
-        }
-
-        return self::$_instance;
-    }
 
     public static function notFound(){
 
@@ -55,6 +45,21 @@ class App{
         }
         
         return $this->db_instance;
+    }
+
+    public static function load(){
+
+
+        session_start();
+
+        require 'Autoloader.php';
+
+        App\Autoloader::register();
+
+        require '../core/Autoloader.php';
+        
+        Core\Autoloader::register();
+
     }
 
 

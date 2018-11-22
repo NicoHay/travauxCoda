@@ -1,9 +1,9 @@
 <?php
-require '../app/Autoloader.php';
 
 
 
-App\Autoloader::register();
+require dirname(__DIR__) . 'app/App.php';
+App::Load();
 
 
 $app = App\App::getInstance();
