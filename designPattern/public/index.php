@@ -1,50 +1,35 @@
 <?php
 
+define('ROOT', dirname(__DIR__));
 
-
-require dirname(__DIR__) . 'app/App.php';
-App::Load();
-
-
-$app = App\App::getInstance();
-
-$posts = $app->getTable('Posts');
-
-
-// var_dump(App\App::getTable('Users'));
+require (ROOT . '/app/App.php');
+App::load();
 
 
 
-// if (isset($_GET['p'])){
 
-// 	$p  = $_GET['p'];
+if(isset($_GET['page'])){
+
+	$page = $_GET['page'];
+
+}else{
+
+	$page = 'home';
+}
+
+ob_start();
+
+if($page === 'home'){
+
+	require ROOT .'/pages/articles/home.php';
+}
+else if($page === 'home'){
+
+	require ROOT .'/pages/articles/home.php';
+}
+
+$content = ob_get_clean();
+
+require ROOT .'/pages/templates/default.php';
 
 
-// }
-// 	else{
-// 	$p = 'home';
-// }
-
-
-
-// ob_start();
-
-// if($p === 'home')
-// {
-
-// 	require '../pages/home.php';
-
-// }
-// elseif($p === 'article')
-// {
-
-// 	require '../pages/single.php';
-// }
-// elseif($p === 'categorie')
-// {
-
-// 	require '../pages/categorie.php';
-// }
-// $content = ob_get_clean();
-
-// require '../pages/templates/default.php';

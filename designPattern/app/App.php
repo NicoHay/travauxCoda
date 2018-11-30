@@ -1,17 +1,22 @@
 <?php
 
-namespace App;
+use Core\Database\MysqlDatabase;
+use Core\Config;
 
 class App{
 
-    private static $title = 'Mon super blog';
-    private static $db_instance;
+   public  $title = 'Mon super blog';
+    private  $db_instance;
     private static $_instance;
 
 
 
-
-
+    public static function getInstance() {
+        if(is_null(self::$_instance)){
+            self::$_instance = new App();
+        }
+        return self::$_instance;
+    }
     public static function notFound(){
 
         header("Location: index.php?p=404");
@@ -27,20 +32,18 @@ class App{
         self::$title  = $title ;
     }
 
-    public function getTable($name){
-
-        $class_name = '\\App\\Table\\' . $name . 'Table';
-       //die($class_name);
-       return new $class_name($this->getDb());
+    public function getTable($name) {
+        $class_name = "\\App\\Table\\" . \ucfirst($name) . 'Table';
+        return new $class_name($this->getDb());
     }
 
     public function getDb(){
 
-        $config =  Config::getInstance();
+        $config =  Config::getInstance(ROOT .'/config/config.php');
+            if($this->db_instance === null){
 
-        if($this->db_instance === null){
 
-        $this->db_instance = new Database($config->get('db_name'),$config->get('db_user'),$config->get('db_pass'),$config->get('db_host'));
+        $this->db_instance = new MysqlDatabase($config->get('db_name'),$config->get('db_host'),$config->get('db_user'),$config->get('db_pass'));
 
         }
         
@@ -48,20 +51,12 @@ class App{
     }
 
     public static function load(){
-
-
         session_start();
-
-        require 'Autoloader.php';
-
+        require ROOT . '/app/Autoloader.php';
         App\Autoloader::register();
-
-        require '../core/Autoloader.php';
-        
+        require ROOT . '/core/Autoloader.php';
         Core\Autoloader::register();
-
     }
-
 
 
     

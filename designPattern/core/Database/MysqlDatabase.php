@@ -3,7 +3,7 @@
 namespace Core\Database;
 use \PDO;
 
-class Database {
+class MysqlDatabase extends Database {
   
     
     private $db_name;
@@ -13,12 +13,12 @@ class Database {
     private $pdo;
 
 
-    public function __construct($db_name,$db_host='localhost',$db_user='root',$db_pass='rootroot'){
+    public function __construct($db_name,$db_host,$db_user,$db_pass){
         
         $this->db_name = $db_name;
+        $this->db_host = $db_host;
         $this->db_user = $db_user;
         $this->db_pass = $db_pass;
-        $this->db_host = $db_host;
  
 
     }
@@ -26,7 +26,7 @@ class Database {
         if($this->pdo === null){
 
 
-            $pdo = new PDO('mysql:dbname=blogphp;host=localhost','nico', 'rootroot');
+            $pdo = new PDO('mysql:dbname=blogphp;host=localhost','root', 'rootroot');
             $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
             $this->pdo = $pdo;

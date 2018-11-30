@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-sm-8">
 
-		<?php foreach (App\Table\Article::getLast() as $posts):  ?>
+		<?php foreach (App::getInstance()->getTable('Post')->last() as $posts):  ?>
 
 
  <h2>
@@ -30,7 +30,7 @@
     <ul>
         <div class="col-sm-4">
     
-			<?php foreach (App\Table\Categorie::getAll() as $categorie):  ?>
+			<?php foreach (App::getInstance()->getTable('Category')->all() as $categorie):  ?>
                 <li>
                     <a href="<?= $categorie->url; ?>">
                         <?= $categorie->titre; ?>

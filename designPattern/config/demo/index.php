@@ -1,3 +1,0 @@
-<?php
-
-CarFactory::get('ville');

@@ -3,12 +3,10 @@
 return array(
 
 
-       "db_user" => 'blogphp',
- 
-       "db_pass" => 'nico',
-    
-       "db_host" => 'rootroot',
+       "db_name" => 'blogphp',
+       "db_user" => 'root',
+       "db_pass" => 'rootroot',
+       "db_host" => 'localhost',
 
-       "db_name" => 'localhost'
 
 );
