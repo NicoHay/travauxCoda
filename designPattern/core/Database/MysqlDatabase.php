@@ -1,58 +1,60 @@
 <?php
 
 namespace Core\Database;
+
 use \PDO;
 
-class MysqlDatabase extends Database {
-  
-    
-    private $db_name;
-    private $db_user;
-    private $db_pass;
-    private $db_host;
+class MysqlDatabase extends Database
+{
+
+    private $user;
+    private $pass;
+    private $dsn;
     private $pdo;
 
+    public function __construct($user, $pass, $dsn)
+    {
 
-    public function __construct($db_name,$db_host,$db_user,$db_pass){
-        
-        $this->db_name = $db_name;
-        $this->db_host = $db_host;
-        $this->db_user = $db_user;
-        $this->db_pass = $db_pass;
- 
+        $this->user = $user;
+        $this->pass = $pass;
+        $this->dsn = $dsn;
 
     }
-    private function getPdo(){
-        if($this->pdo === null){
+
+    private function getPDO()
+    {
 
 
-            $pdo = new PDO('mysql:dbname=blogphp;host=localhost','root', 'rootroot');
-            $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    
+        if ($this->pdo === null) {    //     TODO!
+
+            $pdo = new PDO($this->dsn, $this->user, $this->pass, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             $this->pdo = $pdo;
         }
+
 
         return $this->pdo;
     }
 
-    public function query($statement,$class_name=null,$one =false){
-    
-        $req = $this->getPdo()->query($statement);
-        if($class_name === null){
+    public function query($statement, $class_name = null, $one = false)
+    {
+
+        $req = $this->getPDO()->query($statement);
+
+
+        if ($class_name === null) {
 
             $req->setFetchMode(PDO::FETCH_OBJ);
 
-        }else{
+        } else {
 
             $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
         }
 
-        if($one){
+        if ($one) {
 
             $datas = $req->fetch();
-        
-        }else{
 
+        } else {
 
             $datas = $req->fetchAll();
         }
@@ -61,17 +63,18 @@ class MysqlDatabase extends Database {
     }
 
 
-    public function prepare($statement,$attributes,$class_name, $one=false){
+    public function prepare($statement, $attributes, $class_name, $one = false)
+    {
 
-        $req = $this->getPdo()->prepare($statement);
+        $req = $this->getPDO()->prepare($statement);
         $req->execute($attributes);
-        $req->setFetchMode(PDO::FETCH_CLASS,$class_name);
+        $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
 
-        if($one){
+        if ($one) {
 
             $datas = $req->fetch();
-        
-        }else{
+
+        } else {
 
 
             $datas = $req->fetchAll();

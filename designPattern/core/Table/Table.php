@@ -5,40 +5,63 @@ namespace Core\Table;
 use \Core\Database\Database;
 
 
-class Table{
+class Table
+{
 
     protected $table;
     protected $db;
 
 
 
-    public function __construct(Database $db) {
+    public function __construct(Database $db)
+    {
         $this->db = $db;
-        if(is_null($this->table)){
+
+        if (is_null($this->table)) {
             $parts = explode('\\', get_class($this));
             $class_name = end($parts);
-            $this->table = strtolower(str_replace('Table', '', $class_name)) . 's';
+            $this->table = strtolower(str_replace('Table', '', $class_name));
+
         }
     }
-    public function All(){
+    public function All()
+    {
 
 
-      return $this->query("SELECT * FROM ". $this->table );
+        return $this->query("SELECT * FROM " . $this->table);
     }
 
 
-    public function query($statement, $attributes = null, $one = false) {
-        if($attributes){
+    public function query($statement, $attributes = null, $one = false)
+    {
+        if ($attributes) {
             return $this->db->prepare(
                 $statement,
                 $attributes,
-                str_replace('Table', 'Entity', get_class($this)),
-                $one);
-        }else{
+                str_replace(
+                    'Table',
+                    'Entity',
+                    dirname(__DIR__) . get_class($this)
+                ),
+                $one
+            );
+        } else {
+
             return $this->db->query(
                 $statement,
-                str_replace('Table', 'Entity', get_class($this)),
-                $one);
+                str_replace(
+                    'Table',
+                    'Entity',
+                    dirname(__DIR__) . get_class($this)
+                ),
+                $one
+            );
         }
+    }
+
+
+    public function find($id)
+    {
+        return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
     }
 }

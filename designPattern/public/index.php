@@ -2,34 +2,37 @@
 
 define('ROOT', dirname(__DIR__));
 
-require (ROOT . '/app/App.php');
+require(ROOT . '/app/App.php');
 App::load();
 
 
 
 
-if(isset($_GET['page'])){
+if (isset($_GET['p'])) {
 
-	$page = $_GET['page'];
+	$page = $_GET['p'];
 
-}else{
+} else {
 
 	$page = 'home';
 }
 
 ob_start();
 
-if($page === 'home'){
+if ($page === 'home') {
 
-	require ROOT .'/pages/articles/home.php';
-}
-else if($page === 'home'){
+	require ROOT . '/pages/posts/home.php';
+} else if ($page === 'posts.category') {
 
-	require ROOT .'/pages/articles/home.php';
+	require ROOT . '/pages/posts/category.php';
+
+} else if ($page === 'posts.show') {
+
+	require ROOT . '/pages/posts/show.php';
 }
 
 $content = ob_get_clean();
 
-require ROOT .'/pages/templates/default.php';
+require ROOT . '/pages/templates/default.php';
 
 

@@ -1,20 +1,38 @@
 <?php
 
 namespace App\Entity;
+
 use Core\Entity\Entity;
 
-class PostEntity extends Entity{
+class PostEntity extends Entity
+{
 
 
 
 
+    /**
+     * ************************************************************
+     * renvoie l'url de l'article avec sont id
+     *
+     * @return string
+     * ************************************************************
+     */
+    public function getUrl()
+    {
 
-    public function getUrl(){
-
-        return 'index.php?page=articles&id='.$this->id;
+        return 'index.php?page=posts.show&id=' . $this->id;
     }
-
-    public function getExtrait(){
+    /**
+     * ************************************************************
+     * 
+     * renvoie un extrait 
+     * 
+     * @return string
+     * 
+     * ************************************************************
+     */
+    public function getExtrait()
+    {
         $html = '<p>' . \substr($this->contenu, 0, 100) . '...</p>';
         $html .= '<p><a href="' . $this->getUrl() . '">Voir la suite</a></p>';
         return $html;
