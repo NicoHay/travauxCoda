@@ -23,7 +23,7 @@
                     <li> <span id="yes"></span> Reconnaissance Visuelle </li>
                     <li> <span id="no"></span> Personnalisation du Guide </li>
                     <li> <span id="no"> </span> Ajout de Contenu Personnalisé </li>
-                    <li> <span id="no"></span> Contenu illimité </li>
+                    <li> <span id="no"></span> Contenu limité </li>
                 </ul>
                 <div class="bouton">
                     <a href="#"><svg width="150" height="50">

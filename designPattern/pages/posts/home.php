@@ -10,20 +10,11 @@
 
         ?>
 
+		
+        <h2><a href="<?=$posts->url;?>"><?=$posts->titre;?></a></h2> 
 
-
-            <h2>
-            <a href = "" >
-            <?= $posts['titre']; ?>
-                    </a>
-            </h2>
-            <p>
-                <em>
-                <?= $posts['categorie']; ?>
-                </em>
-            </p>
-            <p><?= $posts['contenu']; ?></p>
-
+      
+        <p><?= $posts->extrait;?></p>
 		
 
 		<?php endforeach; ?>
@@ -39,7 +30,7 @@
             ?>
                 <li>
                     <a href="<?= $categorie->url; ?>">
-                        <?= $categorie['titre']; ?>
+                        <?= $categorie->titre; ?>
                     </a>
                 </li>
             <?php endforeach; ?>

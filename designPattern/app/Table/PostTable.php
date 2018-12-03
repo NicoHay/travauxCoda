@@ -1,6 +1,6 @@
 <?php
 
-namespace App\table;
+namespace App\Table;
 
 use Core\Table\Table;
 
@@ -17,7 +17,7 @@ class PostTable extends Table
      */
     public function last()
     {
-        return $this->query(" SELECT articles.id, articles.titre,                                   articles.contenu, articles.date,
+        return $this->query(" SELECT articles.id, articles.titre,articles.contenu, articles.date,
                             categories.titre as categories
                             FROM articles
                             LEFT JOIN categories ON id_categorie = categories.id
@@ -33,7 +33,7 @@ class PostTable extends Table
      */
     public function find($id)
     {
-        return $this->query("SELECT articles.id, articles.titre,                                    articles.contenu, articles.date,
+        return $this->query("SELECT articles.id, articles.titre,articles.contenu, articles.date,
                             categories.titre as categories
                             FROM articles
                             LEFT JOIN categories ON id_categorie = categories.id
@@ -44,12 +44,12 @@ class PostTable extends Table
      * recupere le dernier element de la categorie demandée
      *
      * @param int $category_id
-     * @return array
+     * @return \App\Entity\CategoryEntity
      * *********************************************************
      */
     public function lastByCategory($category_id)
     {
-        return $this->query("SELECT articles.id, articles.titre,                                articles.contenu, articles.date,
+        return $this->query("SELECT articles.id, articles.titre,articles.contenu, articles.date,
                         categories.titre as categories
                         FROM articles
                         LEFT JOIN categories ON id_categorie = categories.id

@@ -2,7 +2,7 @@
 
 return array(
 
-    "user" => 'root',
-    "pass" => 'rootroot',
+    "user" => 'nico',
+    "pass" => 'coda2018',
     "dsn" => 'mysql:dbname=blogphp;host=localhost'
 );

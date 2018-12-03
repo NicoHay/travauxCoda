@@ -34,6 +34,7 @@ class Table
 
     public function query($statement, $attributes = null, $one = false)
     {
+
         if ($attributes) {
             return $this->db->prepare(
                 $statement,
@@ -41,7 +42,7 @@ class Table
                 str_replace(
                     'Table',
                     'Entity',
-                    dirname(__DIR__) . get_class($this)
+                     get_class($this)
                 ),
                 $one
             );
@@ -52,7 +53,7 @@ class Table
                 str_replace(
                     'Table',
                     'Entity',
-                    dirname(__DIR__) . get_class($this)
+                    get_class($this)
                 ),
                 $one
             );
