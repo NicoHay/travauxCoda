@@ -37,4 +37,13 @@ class PostEntity extends Entity
         $html .= '<p><a href="' . $this->getUrl() . '">Voir la suite</a></p>';
         return $html;
     }
+    public function getTitre(){
+
+        return $this->titre;
+    }
+    
+    public function getContenu(){
+
+        return $this->contenu;
+    }
 }

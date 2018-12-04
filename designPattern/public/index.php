@@ -30,6 +30,10 @@ if ($page === 'home') {
 
 	require ROOT . '/pages/posts/show.php';
 }
+else if ($page === 'login') {
+
+	require ROOT . '/pages/users/login.php';
+}
 
 $content = ob_get_clean();
 

@@ -1,7 +1,8 @@
 <?php
+use Core\Auth\DBAuth;
+
 
 define('ROOT', dirname(__DIR__));
-
 require(ROOT . '/app/App.php');
 App::load();
 
@@ -17,14 +18,27 @@ if (isset($_GET['p'])) {
 	$page = 'home';
 }
 
+
+
+$app =App::getInstance();
+$auth = new DBAuth($app->getDb());
+
+if(!$auth->logged()){
+
+	$app->forbidden();
+}
+
+
+
+
 ob_start();
 
 if ($page === 'home') {
 
-	require ROOT . '/pages/admin/posts/home.php';
-} else if ($page === 'posts.category') {
+	require ROOT . '/pages/admin/posts/index.php';
+} else if ($page === 'post.edit') {
 
-	require ROOT . '/pages/admin/posts/category.php';
+	require ROOT . '/pages/admin/posts/edit.php';
 
 } else if ($page === 'posts.show') {
 
