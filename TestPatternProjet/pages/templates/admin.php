@@ -5,15 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
   <title>Projet</title>
 
-  <link rel="stylesheet" href="../public/css/style.css">
-  <link rel="stylesheet" href="../public/css/member.css">
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="Content/css/style.css">
+  <link rel="stylesheet" href="Content/css/member.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 
 </head>
 
@@ -33,27 +30,23 @@
         </div>
       </div>
       <nav id="menu">
-        <a href="index.php?p=home" class="home">home</a>
-        <a href="index.php?p=register" class="register">S'inscrire</a>
+        <a href="index.php?p=" class="home">Home</a>
+        <a href="index.php?p=logout" class="log">Deconnexion</a>
         <a href="index.php?p=login" class="log">Connexion</a>
-        <a href="#" class="download">Telécharger</a>
-        <a href="#tarifs" class="details">Infos</a>
-        <a href="#mail" class="contact">Contact</a>
+        <a href="index.php?p=reset" class="log">Reset</a>
+        <a href="#" class="iconsContact">Contact</a>
       </nav>
     </header>
 
 
-    
     <!--  contenu de la page -->    <?=$content?>     <!-- contenu de la page -->  
+    
+    </div>
 
 
-  </div>
-
-  <!-- <script src="Content/js/parallax.js"></script> -->
-  <script src="../public/js/stickyNav.js"></script>
-  <script src="../public/js/menuResponsive.js"></script>
+  <!-- <script src="js/parallax.js"></script> -->
+  <script src="Content/js/stickyNav.js"></script>
+  <script src="Content/js/menuResponsive.js"></script>
 </body>
 
 </html>
-
-

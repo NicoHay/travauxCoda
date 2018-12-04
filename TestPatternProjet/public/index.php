@@ -1,11 +1,8 @@
 <?php
 
 define('ROOT', dirname(__DIR__));
-
 require(ROOT . '/app/App.php');
 App::load();
-
-
 
 
 if (isset($_GET['p'])) {
@@ -21,14 +18,23 @@ ob_start();
 
 if ($page === 'home') {
 
-	require ROOT . '/pages/posts/home.php';
-} else if ($page === 'posts.category') {
+	require ROOT . '/pages/publique/home.php';
 
-	require ROOT . '/pages/posts/category.php';
+} else if ($page === 'account') {
 
-} else if ($page === 'posts.show') {
+	require ROOT . '/pages/admin/account.php';
 
-	require ROOT . '/pages/posts/show.php';
+} else if ($page === 'login') {
+
+	require ROOT . '/pages/publique/login.php';
+}
+else if ($page === 'register') {
+
+	require ROOT . '/pages/publique/register.php';
+}
+else if ($page === 'forget') {
+
+	require ROOT . '/pages/publique/forget.php';
 }
 
 $content = ob_get_clean();

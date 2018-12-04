@@ -25,7 +25,7 @@ class MysqlDatabase extends Database
     {
 
 
-        if ($this->pdo === null) {    //     TODO!
+        if ($this->pdo === null) {    
 
             $pdo = new PDO($this->dsn, $this->user, $this->pass, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             $this->pdo = $pdo;

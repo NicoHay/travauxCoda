@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="SVGRoot"
+   version="1.1"
+   viewBox="0 0 40 40"
+   height="40px"
+   width="40px">
+  <defs
+     id="defs1438" />
+  <metadata
+     id="metadata1441">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1">
+    <g
+       transform="matrix(0.83072917,0,0,0.83072917,-0.76822915,-0.70767295)"
+       id="Layer_1_1_">
+      <path
+         d="M 25,1 C 11.767,1 1,11.767 1,25 1,38.233 11.767,49 25,49 38.233,49 49,38.233 49,25 49,11.767 38.233,1 25,1 Z m 0,46 C 12.869,47 3,37.131 3,25 3,12.869 12.869,3 25,3 37.131,3 47,12.869 47,25 47,37.131 37.131,47 25,47 Z"
+         id="path5697" />
+      <rect
+         height="2"
+         width="24"
+         x="13"
+         y="14"
+         id="rect5699" />
+      <rect
+         height="2"
+         width="24"
+         x="13"
+         y="24"
+         id="rect5701" />
+      <rect
+         height="2"
+         width="24"
+         x="13"
+         y="34"
+         id="rect5703" />
+    </g>
+  </g>
+</svg>

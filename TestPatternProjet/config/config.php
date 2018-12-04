@@ -4,5 +4,5 @@ return array(
 
     "user" => 'nico',
     "pass" => 'coda2018',
-    "dsn" => 'mysql:dbname=blogphp;host=localhost'
+    "dsn" => 'mysql:dbname=nicoProjet;host=localhost'
 );

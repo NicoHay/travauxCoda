@@ -6,7 +6,7 @@ use Core\Config;
 class App
 {
 
-    public $title = 'Mon super blog';
+    public $title = 'Mementum';
     private $db_instance;
     private static $_instance;
 
