@@ -39,7 +39,13 @@ class MysqlDatabase extends Database
     {
 
         $req = $this->getPDO()->query($statement);
-
+        
+        if( strpos($statement, 'UPDATE') === 0 ||
+        	strpos($statement, 'INSERT') === 0 ||
+        	strpos($statement, 'DELETE') === 0 ) {
+        		
+        		return $req;
+        	}
 
         if ($class_name === null) {
 
@@ -67,7 +73,15 @@ class MysqlDatabase extends Database
     {
 
         $req = $this->getPDO()->prepare($statement);
-        $req->execute($attributes); 
+        $res = $req->execute($attributes); 
+        
+        if( strpos($statement, 'UPDATE') === 0 ||
+        	strpos($statement, 'INSERT') === 0 ||
+        	strpos($statement, 'DELETE') === 0 ) {
+        		
+        		return $res;
+        	}
+        
         
         if ($class_name === null) {
 
@@ -91,4 +105,7 @@ class MysqlDatabase extends Database
         return $datas;
     }
 
+    public function lastInsertId(){
+    	return $this->getPDO()->lastInsertId();
+    }
 }

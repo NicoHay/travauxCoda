@@ -1,10 +1,28 @@
 <?php
-use Core\Auth\DBAuth;
-
-$posts = App::getInstance()->getTable('Post')->find($_GET['id']);
 
 
-    
+$posts = App::getInstance()->getTable('Post');
+$postTable = $posts->find($_GET['id']);
+
+	if(!empty($_POST))
+	{
+		
+	$result = $posts->update($_GET['id'],[
+			'titre' 	=> 	$_POST['titre'],
+			'contenu' 	=> 	$_POST['contenu']
+		]);
+	
+	if($result){
+		?>
+		
+		<div class = "alert alert-success">L'article a été modifié</div>
+		
+		
+		<?php 
+		
+	}
+	}
+	
     ?>
 
 
@@ -12,14 +30,14 @@ $posts = App::getInstance()->getTable('Post')->find($_GET['id']);
 <form  method="post">
 <div class="form-group">
 
-<input class="form-control" type="text" value=""name="titre" placeholder="<?=$posts->getTitre();?>" >
+<input class="form-control" type="text" value=""name="titre" placeholder="<?=$postTable->getTitre();?>" >
 
 
 </div>
 <div class="form-group">
 <textarea class="form-control" name="contenu"
           rows="5" cols="33" >
-<?=$posts->getContenu();?>
+<?=$postTable->getContenu();?>
 </textarea>
 </div>
 
