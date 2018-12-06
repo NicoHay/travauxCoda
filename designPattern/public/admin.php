@@ -26,6 +26,7 @@ $auth = new DBAuth($app->getDb());
 if(!$auth->logged()){
 
 	$app->forbidden();
+
 }
 
 

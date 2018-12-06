@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace app\Entity;
 
-use Core\Entity\Entity;
+use core\Entity\Entity;
 
 class PostEntity extends Entity
 {
